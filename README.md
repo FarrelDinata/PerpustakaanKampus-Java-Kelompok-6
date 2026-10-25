@@ -452,27 +452,12 @@ public class Main {
 
 ### 4.5 Pengelolaan Antrean Mahasiswa (Queue - FIFO)
 
-![Antrean Queue FIFO](assets/05_queue_antrean.png)
 
-```text
-Pilih menu: 6
+<img width="239" height="187" alt="image" src="https://github.com/user-attachments/assets/39744667-fc01-4635-be4d-c1fb9a3e9ef9" />
 
---- Antrean Peminjam ---
-1. Tambah mahasiswa ke antrean
-2. Lihat antrean
-3. Layani antrean terdepan (proses peminjaman)
-Pilih: 1
-Nama mahasiswa: Budi
-Budi masuk antrean (posisi 1).
 
-Pilih menu: 6
-Pilih: 3
-Melayani: Budi
-ID  Judul                          Kategori             Lokasi     Status    
-1   Pemrograman Java               Pemrograman          L1-R1-P1   Tersedia  
-ID buku yang dipinjam: 1
-Budi berhasil meminjam "Pemrograman Java".
-```
+<img width="369" height="218" alt="image" src="https://github.com/user-attachments/assets/4d84f48d-488a-47bd-aaa3-83061d464090" />
+
 * **Penjelasan Eksekusi Fitur:**
   * Pengguna memanfaatkan **Queue** untuk menata antrean pendaftaran transaksi.
   * Mahasiswa "Budi" ditambahkan ke ekor antrean (`offer()`). Saat dilayani (`poll()`), sistem memproses pinjaman sesuai prinsip **First-In-First-Out (FIFO)**, mengubah status keberadaan buku di **ArrayList**, dan menambah hitungan transaksi harian di **Array 2D**.
@@ -481,42 +466,29 @@ Budi berhasil meminjam "Pemrograman Java".
 
 ### 4.6 Pencatatan & Pembatalan Transaksi (Stack - LIFO)
 
-![Riwayat Transaksi Stack LIFO](assets/06_stack_riwayat.png)
 
-```text
-Pilih menu: 5
+<img width="333" height="373" alt="image" src="https://github.com/user-attachments/assets/d4f7c329-a92e-438b-92e1-973ce1e0657b" />
 
---- Riwayat Transaksi ---
-1. Lihat semua riwayat (terbaru di atas)
-2. Lihat transaksi terakhir
-3. Batalkan transaksi terakhir
-4. Kembalikan buku (catat transaksi)
-Pilih: 1
-1. PINJAM | Budi | Pemrograman Java | Minggu
 
-Pilih menu: 5
-Pilih: 3
-Transaksi dibatalkan: PINJAM | Budi | Pemrograman Java | Minggu
-```
 * **Penjelasan Eksekusi Fitur:**
   * Ketika transaksi pinjam terjadi, objek transaksi di-`push()` ke dalam **Stack**.
   * Pengguna memilih **Menu 5** -> **Option 3** untuk membatalkan transaksi terakhir (*Undo*). Sistem menjalankan method `pop()` pada **Stack** untuk menghapus transaksi teratas (prinsip **Last-In-First-Out**) lalu secara otomatis mengembalikan status buku menjadi "Tersedia" serta mengurangkan counter peminjaman pada **Array 2D**.
 
 ---
 
-## 🧪 5. Pengujian & Analisis Fungsionalitas
+## 5. Pengujian & Analisis Fungsionalitas
 
 | No | Kasus Uji | Langkah Pengujian | Ekspektasi Hasil | Status |
 | :-: | --- | --- | --- | :-: |
-| 1 | **Tambah Buku** | Memilih Menu 4 -> Submenu 1 (Tambah) | Buku masuk ke ArrayList & lokasi fisik tercatat pada Array 3D | ✅ PASSED |
-| 2 | **Antrean Masuk** | Memilih Menu 6 -> Submenu 1 (Tambah) | Nama mahasiswa masuk ke antrean Queue secara berurutan | ✅ PASSED |
-| 3 | **Pelayanan Queue** | Memilih Menu 6 -> Submenu 3 (Layani) | Mahasiswa terdepan dilayani, status buku berubah, & statistik Array 2D ter-update | ✅ PASSED |
-| 4 | **Undo Transaksi** | Memilih Menu 5 -> Submenu 3 (Batalkan) | Transaksi teratas pada Stack dihapus, status buku & statistik otomatis dikembalikan | ✅ PASSED |
-| 5 | **Validasi Input** | Memasukkan input huruf pada pilihan menu | Sistem menangkap `NumberFormatException` dan meminta re-input angka | ✅ PASSED |
+| 1 | **Tambah Buku** | Memilih Menu 4 -> Submenu 1 (Tambah) | Buku masuk ke ArrayList & lokasi fisik tercatat pada Array 3D | PASSED |
+| 2 | **Antrean Masuk** | Memilih Menu 6 -> Submenu 1 (Tambah) | Nama mahasiswa masuk ke antrean Queue secara berurutan | PASSED |
+| 3 | **Pelayanan Queue** | Memilih Menu 6 -> Submenu 3 (Layani) | Mahasiswa terdepan dilayani, status buku berubah, & statistik Array 2D ter-update | PASSED |
+| 4 | **Undo Transaksi** | Memilih Menu 5 -> Submenu 3 (Batalkan) | Transaksi teratas pada Stack dihapus, status buku & statistik otomatis dikembalikan | PASSED |
+| 5 | **Validasi Input** | Memasukkan input huruf pada pilihan menu | Sistem menangkap `NumberFormatException` dan meminta re-input angka | PASSED |
 
 ---
 
-## 📝 6. Kesimpulan
+## 6. Kesimpulan
 
 1. Keenam struktur data (**Array 1D, Array 2D, Array 3D, ArrayList, Stack, dan Queue**) berhasil diintegrasikan secara utuh dan terpadu untuk membangun sistem manajemen operasional perpustakaan kampus.
 2. Penggunaan **Stack (LIFO)** terbukti optimal untuk fitur pembatalan transaksi (*undo*), karena selalu memproses data transaksi paling mutakhir yang baru dimasukkan.
