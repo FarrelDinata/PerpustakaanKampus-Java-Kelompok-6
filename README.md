@@ -428,21 +428,10 @@ public class Main {
 
 ### 4.3 Pemetaan Lokasi Penyimpanan Buku (Array 3D)
 
-![Peta Lokasi Penyimpanan Array 3D](assets/03_array3d_peta.png)
 
-```text
-Pilih menu: 3
+<img width="233" height="282" alt="image" src="https://github.com/user-attachments/assets/21ef3efd-651c-4b11-a7aa-032308779e7d" />
 
---- Peta Lokasi Penyimpanan ('-' = kosong) ---
-Lantai 1
-  Rak 1: [Pemrograman Java] [-] [-] [-] [-] 
-  Rak 2: [-] [-] [-] [-] [-] 
-  Rak 3: [-] [-] [-] [-] [-] 
-  Rak 4: [-] [-] [-] [-] [-] 
-Lantai 2
-  Rak 1: [-] [-] [-] [-] [-] 
-  ...
-```
+
 * **Penjelasan Eksekusi Fitur:**
   * Pengguna memilih **Menu 3** untuk melihat tata letak fisik rak buku.
   * Sistem memproses **Array 3D** `lokasi[lantai][rak][posisi]` berukuran `3x4x5`. Slot yang belum diisi menampilkan tanda `[-]`, sedangkan slot yang terisi akan menampilkan judul buku sesuai dengan koordinat persisnya (misal: Lantai 1, Rak 1, Posisi 1).
@@ -451,24 +440,10 @@ Lantai 2
 
 ### 4.4 Manajemen Katalog Buku (ArrayList)
 
-![Kelola Buku ArrayList](assets/04_arraylist_buku.png)
 
-```text
-Pilih menu: 4
+<img width="252" height="241" alt="image" src="https://github.com/user-attachments/assets/060a5d2b-2179-481b-a473-89278334c162" />
 
---- Kelola Buku ---
-1. Tambah buku
-2. Tampilkan semua buku
-3. Hapus buku
-Pilih: 1
-Judul buku: Pemrograman Java
-1. Pemrograman
-2. Matematika
-3. Jaringan Komputer
-4. Basis Data
-Pilih kategori (nomor): 1
-Buku ditambahkan (ID 1) di lokasi L1-R1-P1
-```
+
 * **Penjelasan Eksekusi Fitur:**
   * Pengguna memilih **Menu 4** kemudian **Sub-Menu 1** untuk menambahkan buku baru.
   * Buku baru dimasukkan ke dalam **ArrayList** `daftar` secara dinamis, lalu sistem otomatis mencari slot fisik pertama yang kosong pada **Array 3D** dan menempatkan judul buku tersebut di koordinat tersebut (`L1-R1-P1`).
