@@ -60,8 +60,8 @@ Mengemas data entitas buku beserta properti lokasinya.
 public class Buku {
     private int id;
     private String judul;
-    private int kategori;   // Indeks Array 1D Kategori
-    private int lantai, rak, posisi; // Indeks Array 3D Lokasi
+    private int kategori;   
+    private int lantai, rak, posisi; 
     private boolean dipinjam = false;
 
     public Buku(int id, String judul, int kategori, int lantai, int rak, int posisi) {
@@ -82,7 +82,6 @@ public class Buku {
     public boolean isDipinjam() { return dipinjam; }
     public void setDipinjam(boolean dipinjam) { this.dipinjam = dipinjam; }
 
-    // Mengembalikan format string lokasi fisik: Contoh L1-R2-P3
     public String getLokasi() {
         return "L" + (lantai + 1) + "-R" + (rak + 1) + "-P" + (posisi + 1);
     }
@@ -103,13 +102,11 @@ Mengelola statistik peminjaman menggunakan Array 1D (label) dan Array 2D (frekue
 import java.time.LocalDate;
 
 public class StatistikPeminjaman {
-    // Array 1D: Label Statis Kategori dan Hari
     public static final String[] KATEGORI =
             {"Pemrograman", "Matematika", "Jaringan Komputer", "Basis Data"};
     public static final String[] HARI =
             {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"};
 
-    // Array 2D: Rows (Kategori) x Columns (Hari)
     private int[][] data = new int[KATEGORI.length][HARI.length];
 
     public static int hariIni() {
@@ -166,30 +163,27 @@ import java.util.ArrayList;
 public class KoleksiBuku {
     public static final int LANTAI = 3, RAK = 4, POSISI = 5;
 
-    // Array 3D: [Lantai][Rak][Posisi] berisi Judul Buku (null jika kosong)
     private String[][][] lokasi = new String[LANTAI][RAK][POSISI];
 
-    // ArrayList: Menampung objek Buku secara dinamis
     private ArrayList<Buku> daftar = new ArrayList<>();
     private int nextId = 1;
 
     public boolean isEmpty() { return daftar.isEmpty(); }
 
     public Buku tambah(String judul, int kategori) {
-        // Mencari slot kosong pada Array 3D
         for (int l = 0; l < LANTAI; l++) {
             for (int r = 0; r < RAK; r++) {
                 for (int p = 0; p < POSISI; p++) {
                     if (lokasi[l][r][p] == null) {
                         Buku b = new Buku(nextId++, judul, kategori, l, r, p);
-                        daftar.add(b);               // Masukkan ke ArrayList
-                        lokasi[l][r][p] = judul;     // Tandai pada Array 3D
+                        daftar.add(b);               
+                        lokasi[l][r][p] = judul;     
                         return b;
                     }
                 }
             }
         }
-        return null; // Rak Penuh
+        return null; 
     }
 
     public Buku cari(int id) {
@@ -200,8 +194,8 @@ public class KoleksiBuku {
     }
 
     public void hapus(Buku b) {
-        lokasi[b.getLantai()][b.getRak()][b.getPosisi()] = null; // Kosongkan Array 3D
-        daftar.remove(b);                                       // Hapus dari ArrayList
+        lokasi[b.getLantai()][b.getRak()][b.getPosisi()] = null; 
+        daftar.remove(b);                                       
     }
 
     public void tampilBuku() {
@@ -392,7 +386,6 @@ public class Main {
             }
         } while (pilih != 0);
     }
-    // ... Sub-menu interaktif ...
 }
 ```
 
